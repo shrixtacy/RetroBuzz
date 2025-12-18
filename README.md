@@ -84,7 +84,7 @@ Press **Ctrl + Alt + D** to open the AI Debug Panel and see:
 - **Error Sounds**: Retro error beeps and alerts
 - **Game Audio**: Snake eating, Tetris line clears, game over sounds
 
-## 🎮 **Fully Playable Games**
+## 🎮 **Fully Playable Retro Games Collection**
 
 ### 🐍 Snake Game
 - **Classic Gameplay**: Navigate the snake to eat food and grow
@@ -117,6 +117,54 @@ Press **Ctrl + Alt + D** to open the AI Debug Panel and see:
   - Center and corner preferences
 - **Statistics Tracking**: Win rate, games played, score tracking
 - **Real-time AI Thinking**: Visual feedback when AI is calculating moves
+
+### 🟡 Pac-Man
+- **Classic Maze Game**: Navigate through the maze eating dots
+- **Ghost AI**: Four different colored ghosts with unique behaviors
+- **Power Pellets**: Eat large dots to temporarily turn ghosts vulnerable
+- **Progressive Levels**: New maze layouts as you advance
+- **Score System**: Points for dots, power pellets, and ghosts
+- **Controls**: Arrow keys or WASD to move
+
+### 🧱 Breakout
+- **Brick Breaking Action**: Destroy all bricks with the bouncing ball
+- **Physics Engine**: Realistic ball physics and paddle interaction
+- **Colorful Bricks**: Different colored brick rows for visual appeal
+- **Lives System**: Multiple chances to complete each level
+- **Paddle Control**: Mouse or keyboard control for precise movement
+- **Controls**: Arrow keys or A/D to move paddle, Space to start
+
+### 👾 Space Invaders
+- **Classic Arcade Shooter**: Defend Earth from alien invasion
+- **Multiple Invader Types**: Different aliens with varying point values
+- **Progressive Difficulty**: Invaders speed up as numbers decrease
+- **Defensive Strategy**: Use cover and timing to survive
+- **Lives System**: Multiple ships to complete your mission
+- **Controls**: Arrow keys or A/D to move, Space to shoot
+
+### 🚀 Asteroids
+- **Space Physics**: Realistic momentum and rotation in zero gravity
+- **Asteroid Splitting**: Large asteroids break into smaller pieces
+- **Thrust Control**: Manage your ship's momentum carefully
+- **Screen Wrapping**: Objects wrap around screen edges
+- **Progressive Waves**: New asteroid waves with increasing difficulty
+- **Controls**: A/D to rotate, W for thrust, Space to shoot
+
+### 🏓 Pong
+- **The Original Video Game**: Classic tennis-style gameplay
+- **Two Game Modes**: Single player vs AI or local 2-player
+- **AI Opponent**: Challenging but fair computer player
+- **Score to Win**: First to 5 points wins the match
+- **Realistic Physics**: Ball angle changes based on paddle hit position
+- **Controls**: W/S for Player 1, Arrow keys for Player 2
+
+### 🐸 Frogger
+- **Road Crossing Challenge**: Help the frog safely cross busy roads
+- **Multiple Lanes**: Navigate through cars and trucks going both directions
+- **Progressive Levels**: Increasing traffic density and speed
+- **Lives System**: Multiple attempts to reach the goal
+- **Safe Zones**: Rest areas between dangerous road sections
+- **Controls**: Arrow keys or WASD to move in four directions
 
 ## 🚀 Getting Started
 

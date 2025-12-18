@@ -3,6 +3,14 @@ import { WindowState, AppDefinition } from '../os/OSManager';
 import SnakeGame from '../games/SnakeGame';
 import TetrisGame from '../games/TetrisGame';
 import TicTacToeGame from '../games/TicTacToeGame';
+import PacManGame from '../games/PacManGame';
+import BreakoutGame from '../games/BreakoutGame';
+import SpaceInvadersGame from '../games/SpaceInvadersGame';
+import AsteroidsGame from '../games/AsteroidsGame';
+import PongGame from '../games/PongGame';
+import FroggerGame from '../games/FroggerGame';
+import PaintApp from './PaintApp';
+import InternetExplorerApp from './InternetExplorerApp';
 
 interface WindowProps {
   window: WindowState;
@@ -118,22 +126,7 @@ const Window: React.FC<WindowProps> = ({
         );
       
       case 'paint':
-        return (
-          <div style={{ padding: '8px', height: '100%' }}>
-            <div style={{ 
-              width: '100%', 
-              height: '100%', 
-              background: 'white',
-              border: '1px inset #c0c0c0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px'
-            }}>
-              🎨 Paint Canvas
-            </div>
-          </div>
-        );
+        return <PaintApp />;
       
       case 'calculator':
         return (
@@ -315,51 +308,7 @@ const Window: React.FC<WindowProps> = ({
         );
 
       case 'internetexplorer':
-        return (
-          <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ 
-              background: '#c0c0c0', 
-              padding: '4px', 
-              borderBottom: '1px solid #808080',
-              display: 'flex',
-              gap: '4px'
-            }}>
-              {['Back', 'Forward', 'Stop', 'Refresh', 'Home'].map(btn => (
-                <button key={btn} className="win95-button" style={{ fontSize: '10px', padding: '2px 6px' }}>
-                  {btn}
-                </button>
-              ))}
-            </div>
-            <div style={{ padding: '4px', background: '#c0c0c0', borderBottom: '1px solid #808080' }}>
-              <input 
-                type="text" 
-                value="http://www.microsoft.com" 
-                readOnly
-                style={{ 
-                  width: '100%', 
-                  padding: '2px 4px',
-                  border: '1px inset #c0c0c0'
-                }}
-              />
-            </div>
-            <div style={{ 
-              flex: 1, 
-              background: 'white', 
-              padding: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column'
-            }}>
-              <div style={{ fontSize: '48px', marginBottom: '16px' }}>🌐</div>
-              <h2 style={{ color: '#000080', marginBottom: '8px' }}>Welcome to the Internet!</h2>
-              <p style={{ textAlign: 'center', color: '#666' }}>
-                Connecting at 56k modem speed...<br />
-                Please wait while we load the information superhighway!
-              </p>
-            </div>
-          </div>
-        );
+        return <InternetExplorerApp />;
 
       case 'winzip':
         return (
@@ -565,6 +514,36 @@ const Window: React.FC<WindowProps> = ({
               console.log(`Tic-Tac-Toe game ended! Winner: ${winner || 'Tie'}, Difficulty: ${difficulty}`);
             }}
           />
+        );
+
+      case 'pacman':
+        return (
+          <PacManGame />
+        );
+
+      case 'breakout':
+        return (
+          <BreakoutGame />
+        );
+
+      case 'spaceinvaders':
+        return (
+          <SpaceInvadersGame />
+        );
+
+      case 'asteroids':
+        return (
+          <AsteroidsGame />
+        );
+
+      case 'pong':
+        return (
+          <PongGame />
+        );
+
+      case 'frogger':
+        return (
+          <FroggerGame />
         );
       
       default:

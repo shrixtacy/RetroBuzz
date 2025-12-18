@@ -25,7 +25,7 @@ const Desktop: React.FC<DesktopProps> = ({ apps, onAppOpen, onDesktopClick, onDo
   });
 
   const desktopApps = apps.filter(app => 
-    ['mycomputer', 'notepad', 'paint', 'control', 'solitaire', 'minesweeper', 'internetexplorer', 'snake', 'tetris', 'tictactoe'].includes(app.id)
+    ['mycomputer', 'notepad', 'paint', 'control', 'solitaire', 'minesweeper', 'internetexplorer', 'snake', 'tetris', 'tictactoe', 'pacman', 'breakout', 'spaceinvaders', 'asteroids', 'pong', 'frogger'].includes(app.id)
   );
 
   const handleIconClick = useCallback((appId: string) => {
@@ -98,8 +98,8 @@ const Desktop: React.FC<DesktopProps> = ({ apps, onAppOpen, onDesktopClick, onDo
             className={`desktop-icon ${selectedIcon === app.id ? 'selected' : ''}`}
             style={{
               position: 'absolute',
-              left: 50 + (index % 4) * 110,
-              top: 50 + Math.floor(index / 4) * 110
+              left: 50 + (index % 5) * 90,
+              top: 50 + Math.floor(index / 5) * 100
             }}
             onClick={() => handleIconClick(app.id)}
             onDoubleClick={() => handleIconDoubleClick(app.id)}

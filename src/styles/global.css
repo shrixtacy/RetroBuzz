@@ -982,6 +982,51 @@ body::before {
   image-rendering: crisp-edges;
 }
 
+/* Spinner Animation for IE */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Retro Blink Effect */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+blink {
+  animation: blink 1s linear infinite;
+}
+
+/* Welcome Splash Animations */
+@keyframes glow {
+  from {
+    text-shadow: 
+      2px 2px 0px #000000,
+      4px 4px 0px #666600,
+      6px 6px 10px rgba(255,255,0,0.3);
+  }
+  to {
+    text-shadow: 
+      2px 2px 0px #000000,
+      4px 4px 0px #666600,
+      6px 6px 10px rgba(255,255,0,0.3),
+      0 0 20px #ffff00,
+      0 0 30px #ffff00;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .no-select {
   user-select: none;
   -webkit-user-select: none;

@@ -12,6 +12,7 @@ import AICommentary from './components/AICommentary';
 import WelcomeDialog from './components/WelcomeDialog';
 import SystemDialog from './components/SystemDialog';
 import LoadingScreen from './components/LoadingScreen';
+import WelcomeSplash from './components/WelcomeSplash';
 
 // App definitions with retro pixelated icons
 const APPS: AppDefinition[] = [
@@ -166,6 +167,54 @@ const APPS: AppDefinition[] = [
     executable: 'tictactoe.exe',
     defaultWidth: 400,
     defaultHeight: 450
+  },
+  {
+    id: 'pacman',
+    name: 'Pac-Man',
+    icon: '🟡',
+    executable: 'pacman.exe',
+    defaultWidth: 450,
+    defaultHeight: 500
+  },
+  {
+    id: 'breakout',
+    name: 'Breakout',
+    icon: '🧱',
+    executable: 'breakout.exe',
+    defaultWidth: 450,
+    defaultHeight: 500
+  },
+  {
+    id: 'spaceinvaders',
+    name: 'Space Invaders',
+    icon: '👾',
+    executable: 'invaders.exe',
+    defaultWidth: 450,
+    defaultHeight: 500
+  },
+  {
+    id: 'asteroids',
+    name: 'Asteroids',
+    icon: '🚀',
+    executable: 'asteroids.exe',
+    defaultWidth: 450,
+    defaultHeight: 500
+  },
+  {
+    id: 'pong',
+    name: 'Pong',
+    icon: '🏓',
+    executable: 'pong.exe',
+    defaultWidth: 450,
+    defaultHeight: 500
+  },
+  {
+    id: 'frogger',
+    name: 'Frogger',
+    icon: '🐸',
+    executable: 'frogger.exe',
+    defaultWidth: 450,
+    defaultHeight: 500
   }
 ];
 
@@ -178,7 +227,7 @@ function App() {
   const [showClippy, setShowClippy] = useState(false);
   const [hesitationTimer, setHesitationTimer] = useState<number | null>(null);
   const [aiComment, setAiComment] = useState<string | null>(null);
-  const [showWelcome, setShowWelcome] = useState(() => {
+  const [showWelcomeDialog, setShowWelcomeDialog] = useState(() => {
     return !localStorage.getItem('retroos_welcomed');
   });
   const [systemDialog, setSystemDialog] = useState<{
@@ -187,7 +236,12 @@ function App() {
     message: string;
   } | null>(null);
   const [showLoading, setShowLoading] = useState(() => {
-    return !localStorage.getItem('retroos_booted');
+    // Show full terminal loading only for new users
+    return !localStorage.getItem('retroos_user');
+  });
+  const [showWelcomeSplash, setShowWelcomeSplash] = useState(() => {
+    // Show simple welcome splash for returning users
+    return !!localStorage.getItem('retroos_user');
   });
   const [currentUser, setCurrentUser] = useState(() => {
     return localStorage.getItem('retroos_user') || '';
@@ -334,11 +388,14 @@ function App() {
 
   const handleWelcomeClose = useCallback(() => {
     localStorage.setItem('retroos_welcomed', 'true');
-    setShowWelcome(false);
+    setShowWelcomeDialog(false);
+  }, []);
+
+  const handleWelcomeSplashComplete = useCallback(() => {
+    setShowWelcomeSplash(false);
   }, []);
 
   const handleLoadingComplete = useCallback((userName: string, funnyName: string) => {
-    localStorage.setItem('retroos_booted', 'true');
     localStorage.setItem('retroos_user', userName);
     localStorage.setItem('retroos_funny_name', funnyName);
     setCurrentUser(userName);
@@ -420,9 +477,14 @@ function App() {
     showAIComment(action);
   }, [aiBrain, showAIComment]);
 
-  // Show loading screen first
+  // Show full terminal loading for new users
   if (showLoading) {
     return <LoadingScreen onComplete={handleLoadingComplete} />;
+  }
+
+  // Show simple welcome splash for returning users
+  if (showWelcomeSplash) {
+    return <WelcomeSplash funnyName={userFunnyName} onComplete={handleWelcomeSplashComplete} />;
   }
 
   return (
@@ -507,7 +569,7 @@ function App() {
         />
       )}
 
-          {showWelcome && (
+          {showWelcomeDialog && (
             <WelcomeDialog onClose={handleWelcomeClose} />
           )}
 
