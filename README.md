@@ -1,6 +1,9 @@
 # RetroOS 95 - AI-Powered Windows 95 Simulator
 
 > "What if Windows 95 had an AI brain?"
+>
+> <img width="1919" height="914" alt="Screenshot 2025-12-18 141346" src="https://github.com/user-attachments/assets/160d248d-c0d3-4bda-a04b-fc2d788fff54" />
+
 
 An authentic Windows 95 desktop simulator with modern AI intelligence that learns from user behavior and adapts the interface accordingly.
 
